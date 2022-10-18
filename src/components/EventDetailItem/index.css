@@ -1,0 +1,23 @@
+.event-detail-body-container {
+    display: flex;
+    justify-content: space-between;
+}
+.event-detail-image-container {
+    width: 100%;
+}
+.event-detail-image {
+    width: 100%;
+}
+.event-detail-matter-container {
+    margin-right: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.event-detail-details {
+    align-self: flex-end;
+}
+
+.detail-desc {
+    font-weight: bold;
+}

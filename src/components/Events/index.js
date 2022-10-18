@@ -1,31 +1,16 @@
 import { Component } from "react";
+import Loader from "../Loader"
 import Header from "../Header";
 import EventItem from "../EventItem";
 import "./index.css";
 
 const CATEGORY = "SPORTS";
-const generateEvents = (total) => {
-  let totalEvents = [];
-  const eachCategory = parseInt(total / 3);
-  const availableCategories = ["SPORTS", "CULTURAL", "TECHNICAL"];
-  let cid = 1;
-  availableCategories.forEach((category) => {
-    for (let i = 0; i < eachCategory; i++) {
-      totalEvents.push({
-        id: cid++,
-        eventImageUrl: "https://picsum.photos/200/200",
-        eventName: category.toLowerCase(),
-        eventCategory: category,
-      });
-    }
-  });
-  return totalEvents;
-};
 
 class Events extends Component {
   state = {
     activeCategory: CATEGORY,
-    events: generateEvents(30),
+    events: [],
+    isLoading: true,
   };
   componentDidMount() {
     this.fetchEventDetails();
@@ -42,15 +27,18 @@ class Events extends Component {
     }))
     this.setState({
       events: convertedData,
+      isLoading: false,
     })
   }
   setCategory = (newCategory) => {
     this.setState({ activeCategory: newCategory });
   };
   render() {
-    const { activeCategory, events } = this.state;
+    const { activeCategory, events, isLoading } = this.state;
     const filteredEvents = events.filter(eachEvent => eachEvent.eventCategory === activeCategory)
-    return (
+    return (isLoading) ? (
+      <Loader color="#00bfff" height={50} width={50} />
+    ) : (
       <div>
         <Header title="Events" />
         <div>
