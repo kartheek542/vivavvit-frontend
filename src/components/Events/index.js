@@ -53,7 +53,6 @@ class Events extends Component {
     return (
       <div>
         <Header title="Events" />
-        <h1>The active category is {activeCategory}</h1>
         <div>
           <button type="button" onClick={() => this.setCategory("SPORTS")}>
             SPORTS
@@ -65,7 +64,7 @@ class Events extends Component {
             CULTURAL
           </button>
         </div>
-        <div>
+        <div className="events-list-container">
             {filteredEvents.map(eachEvent => (
                 <EventItem key={eachEvent.id} eventDetails={eachEvent} />
             ))}

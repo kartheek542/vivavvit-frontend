@@ -8,10 +8,10 @@ const EventItem = (props) => {
   const url = `/events/${id}`;
 
   return (
-    <div>
-      <Link to={url}>
-        <img src={eventImageUrl} alt={eventName} />
-        <div>
+    <div className="event-container">
+      <Link to={url} className="link">
+        <img src={eventImageUrl} alt={eventName} className="event-image" />
+        <div className="mini-event-text">
           <p>{eventName}</p>
           <BsArrowRight />
         </div>
