@@ -1,0 +1,15 @@
+.header-container {
+    display: flex;
+    align-items: center;
+}
+.home-link {
+    flex-grow: 1;
+}
+.main-title {
+    font-size: 50px;
+}
+.events-button-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
