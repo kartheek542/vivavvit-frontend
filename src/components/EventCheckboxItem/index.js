@@ -8,7 +8,7 @@ const EventCheckboxItem = (props) => {
     onChangeEvent(id, event.target.checked);
   };
   return (
-    <div>
+    <div className="event-checkbox-container">
       {selected ? (
         <input
           id={id}
@@ -17,6 +17,7 @@ const EventCheckboxItem = (props) => {
           value={id}
           onChange={onCheckEvent}
           checked={true}
+          className="event-checkbox"
         />
       ) : (
         <input
@@ -26,6 +27,7 @@ const EventCheckboxItem = (props) => {
           value={id}
           onChange={onCheckEvent}
           checked={false}
+          className="event-checkbox"
         />
       )}
       <label htmlFor={id}>{eventName}</label>

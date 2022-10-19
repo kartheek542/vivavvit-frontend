@@ -1,26 +1,28 @@
 import { Component } from "react";
+import Header from '../Header'
 import EventCheckboxItem from "../EventCheckboxItem";
+import { Button, CategoryButton } from "../styledComponents";
 import SubmitSuccess from "../SubmitSuccess";
 import "./index.css";
 
-const generateEvents = (total) => {
-  let totalEvents = [];
-  const eachCategory = parseInt(total / 3);
-  const availableCategories = ["SPORTS", "CULTURAL", "TECHNICAL"];
-  let cid = 1;
-  availableCategories.forEach((category) => {
-    for (let i = 0; i < eachCategory; i++) {
-      totalEvents.push({
-        id: cid++,
-        eventImageUrl: "https://picsum.photos/200/200",
-        eventName: category.toLowerCase(),
-        eventCategory: category,
-        selected: false,
-      });
-    }
-  });
-  return totalEvents;
-};
+// const generateEvents = (total) => {
+  // let totalEvents = [];
+  // const eachCategory = parseInt(total / 3);
+  // const availableCategories = ["SPORTS", "CULTURAL", "TECHNICAL"];
+  // let cid = 1;
+  // availableCategories.forEach((category) => {
+    // for (let i = 0; i < eachCategory; i++) {
+      // totalEvents.push({
+        // id: cid++,
+        // eventImageUrl: "https://picsum.photos/200/200",
+        // eventName: category.toLowerCase(),
+        // eventCategory: category,
+        // selected: false,
+      // });
+    // }
+  // });
+  // return totalEvents;
+// };
 
 class Register extends Component {
   state = {
@@ -34,7 +36,7 @@ class Register extends Component {
     emailError: "",
     mobileError: "",
     formError: "",
-    totalEvents: generateEvents(30),
+    totalEvents: [],
     currentEventType: "SPORTS",
     year: '1',
     college: 'VVIT',
@@ -242,141 +244,153 @@ class Register extends Component {
     const filterdEvents = totalEvents.filter(
       (eachEvent) => eachEvent.eventCategory === currentEventType
     );
-    return (submitted) ? (
+    return submitted ? (
       <SubmitSuccess />
     ) : (
       <div>
-        <div>
-          <h1>Register for VIVAVVIT</h1>
-        </div>
-        <form onSubmit={this.onSubmitForm}>
-          <div>
-            <div>
-              <label htmlFor="name">NAME</label>
-              <input
-                type="text"
-                id="name"
-                placeholder="Enter your name"
-                value={name}
-                onChange={this.onChangeName}
-                onBlur={this.onBlurName}
-              />
-              <p>{nameError}</p>
-            </div>
-            <div>
-              <label htmlFor="rollNumber">ROLL NUMBER</label>
-              <input
-                type="text"
-                id="rollNumber"
-                placeholder="Enter your 10 digit roll number"
-                value={rollNumber}
-                onChange={this.onChangeRollNumber}
-                onBlur={this.onBlurRoll}
-              />
-              <p>{rollError}</p>
-            </div>
-            <div>
-              <label htmlFor="email">EMAIL</label>
-              <input
-                type="email"
-                id="email"
-                placeholder="Enter your email id"
-                value={email}
-                onChange={this.onChangeEmail}
-                onBlur={this.onBlurEmail}
-              />
-              <p>{emailError}</p>
-            </div>
-            <div>
-              <label htmlFor="mobile">MOBILE</label>
-              <input
-                type="text"
-                id="mobile"
-                placeholder="Enter your mobile number"
-                value={mobileNumber}
-                onChange={this.onChangeMobile}
-                onBlur={this.onBlurMobile}
-              />
-              <p>{mobileError}</p>
-            </div>
-            <div>
-              <p>Year</p>
-              <div>
-                <label htmlFor="year1">1</label>
+        <Header title="Register for VIVAVVIT" />
+        <form onSubmit={this.onSubmitForm} className="register-form">
+          <div className="register-input-container">
+            <div className="register-part-1">
+              <div className="input-element-container">
+                <label htmlFor="name">NAME</label>
                 <input
-                  id="year1"
-                  type="radio"
-                  checked={year === "1"}
-                  name="year"
-                  value="1"
-                  onChange={this.onChangeYear}
+                  type="text"
+                  id="name"
+                  placeholder="Enter your name"
+                  value={name}
+                  onChange={this.onChangeName}
+                  onBlur={this.onBlurName}
+                  className="register-input"
                 />
+                <p className="error-msg">{nameError}</p>
               </div>
-              <div>
-                <label htmlFor="year2">2</label>
+              <div className="input-element-container">
+                <label htmlFor="rollNumber">ROLL NUMBER</label>
                 <input
-                  id="year2"
-                  type="radio"
-                  checked={year === "2"}
-                  name="year"
-                  value="2"
-                  onChange={this.onChangeYear}
+                  type="text"
+                  id="rollNumber"
+                  placeholder="Enter your 10 digit roll number"
+                  value={rollNumber}
+                  onChange={this.onChangeRollNumber}
+                  onBlur={this.onBlurRoll}
+                  className="register-input"
                 />
+                <p className="error-msg">{rollError}</p>
               </div>
-              <div>
-                <label htmlFor="year3">3</label>
+              <div className="input-element-container">
+                <label htmlFor="email">EMAIL</label>
                 <input
-                  id="year3"
-                  type="radio"
-                  checked={year === "3"}
-                  name="year"
-                  value="3"
-                  onChange={this.onChangeYear}
+                  type="email"
+                  id="email"
+                  placeholder="Enter your email id"
+                  value={email}
+                  onChange={this.onChangeEmail}
+                  onBlur={this.onBlurEmail}
+                  className="register-input"
                 />
+                <p className="error-msg">{emailError}</p>
               </div>
-              <div>
-                <label htmlFor="year4">4</label>
+              <div className="input-element-container">
+                <label htmlFor="mobile">MOBILE</label>
                 <input
-                  id="year4"
-                  type="radio"
-                  checked={year === "4"}
-                  name="year"
-                  value="4"
-                  onChange={this.onChangeYear}
+                  type="text"
+                  id="mobile"
+                  placeholder="Enter your mobile number"
+                  value={mobileNumber}
+                  onChange={this.onChangeMobile}
+                  onBlur={this.onBlurMobile}
+                  className="register-input"
                 />
+                <p className="error-msg">{mobileError}</p>
+              </div>
+                <p>Year</p>
+              <div className="input-element-container radio-buttons-container">
+                <div className="radio-button-container">
+                  <input
+                    id="year1"
+                    type="radio"
+                    checked={year === "1"}
+                    name="year"
+                    value="1"
+                    onChange={this.onChangeYear}
+                  />
+                  <label htmlFor="year1">1</label>
+                </div>
+                <div className="radio-button-container">
+                  <input
+                    id="year2"
+                    type="radio"
+                    checked={year === "2"}
+                    name="year"
+                    value="2"
+                    onChange={this.onChangeYear}
+                  />
+                  <label htmlFor="year2">2</label>
+                </div>
+                <div className="radio-button-container">
+                  <input
+                    id="year3"
+                    type="radio"
+                    checked={year === "3"}
+                    name="year"
+                    value="3"
+                    onChange={this.onChangeYear}
+                  />
+                  <label htmlFor="year3">3</label>
+                </div>
+                <div className="radio-button-container">
+                  <input
+                    id="year4"
+                    type="radio"
+                    checked={year === "4"}
+                    name="year"
+                    value="4"
+                    onChange={this.onChangeYear}
+                  />
+                  <label htmlFor="year4">4</label>
+                </div>
+              </div>
+            </div>
+            <div className="register-part-2">
+              <div className="category-buttons-container">
+                <CategoryButton
+                  type="button"
+                  isActive={currentEventType === 'SPORTS'}
+                  onClick={() => this.setCategory("SPORTS")}
+                >
+                  SPORTS
+                </CategoryButton>
+                <CategoryButton
+                  type="button"
+                  isActive={currentEventType === 'TECHNICAL'}
+                  onClick={() => this.setCategory("TECHNICAL")}
+                >
+                  TECHNICAL
+                </CategoryButton>
+                <CategoryButton
+                  type="button"
+                  isActive={currentEventType === 'CULTURAL'}
+                  onClick={() => this.setCategory("CULTURAL")}
+                >
+                  CULTURAL
+                </CategoryButton>
+              </div>
+              <div className="events-checkboxs-container">
+                {filterdEvents.map((eachEvent) => (
+                  <EventCheckboxItem
+                    key={eachEvent.id}
+                    eventDetails={eachEvent}
+                    onChangeEvent={this.checkedEvent}
+                  />
+                ))}
               </div>
             </div>
           </div>
-          <div>
-            <div>
-              <button type="button" onClick={() => this.setCategory("SPORTS")}>
-                SPORTS
-              </button>
-              <button
-                type="button"
-                onClick={() => this.setCategory("TECHNICAL")}
-              >
-                TECHNICAL
-              </button>
-              <button
-                type="button"
-                onClick={() => this.setCategory("CULTURAL")}
-              >
-                CULTURAL
-              </button>
-            </div>
-            <div>
-              {filterdEvents.map((eachEvent) => (
-                <EventCheckboxItem
-                  key={eachEvent.id}
-                  eventDetails={eachEvent}
-                  onChangeEvent={this.checkedEvent}
-                />
-              ))}
-            </div>
+          <div className="register-submit-container">
+            <p>{formError}</p>
+            <Button type="submit" color="#28a745">Submit</Button>
           </div>
-          <p>{formError}</p>
-          <button type="submit">Submit</button>
         </form>
       </div>
     );

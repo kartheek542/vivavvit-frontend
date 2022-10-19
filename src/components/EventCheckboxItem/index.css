@@ -1,0 +1,13 @@
+.event-checkbox-container {
+    width: 28%;
+    padding: 10px;
+    font-size: 20px;
+    background-color: #f0f279;
+    margin: 5px;
+    border-radius: 10px;
+}
+.event-checkbox {
+    width: 14px;
+    height: 14px;
+    margin-right: 12px;
+}
