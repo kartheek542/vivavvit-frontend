@@ -1,8 +1,9 @@
 .header-container {
     display: flex;
     align-items: center;
+background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(255,236,231,1) 0%, rgba(255,143,108,1) 90.1% );
 }
-.home-link {
+.logo-container{
     flex-grow: 1;
 }
 .main-title {
@@ -12,4 +13,8 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
+}
+.logo {
+    height: 80px;
+    width: 140px;
 }

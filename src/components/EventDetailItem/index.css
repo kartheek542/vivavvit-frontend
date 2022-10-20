@@ -21,3 +21,6 @@
 .detail-desc {
     font-weight: bold;
 }
+.event-detail-page {
+    height: 100vh;
+}

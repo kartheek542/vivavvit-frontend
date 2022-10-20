@@ -103,7 +103,7 @@ class Login extends Component {
     return vvitAccessToken !== undefined ? (
       <Navigate replace to="/coordinator" />
     ) : (
-      <div>
+      <div className="login-page">
         <Header />
         <div className="login-form-container">
           <form onSubmit={this.onSubmitForm} className="login-form">

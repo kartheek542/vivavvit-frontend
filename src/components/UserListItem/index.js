@@ -2,7 +2,7 @@ import "./index.css"
 
 const UserListItem = props => {
     const {userDetails} = props
-    const {name, rollNumber, college, mobile, year} = userDetails;
+    const {name, rollNumber, college, mobile, year, branch, gender, email} = userDetails;
     return (
         <tr>
             <td>{name}</td>
@@ -10,6 +10,9 @@ const UserListItem = props => {
             <td>{college}</td>
             <td>{year}</td>
             <td>{mobile}</td>
+            <td>{branch}</td>
+            <td>{gender === 'M' ? 'Male' : 'Female'}</td>
+            <td>{email}</td>
         </tr>
     )
 }

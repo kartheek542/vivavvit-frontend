@@ -14,7 +14,7 @@ export const Button = styled.button`
 export const CategoryButton = styled.button`
   padding: 10px;
   font-size: 15px;
-  color: ${props => (props.isActive ? "#5f6f87" : "#ffffff")};
+  color: ${props => (props.isActive ? "#5f6f87" : "#000000")};
   border-radius: 4px;
   margin-left: 10px;
   cursor: pointer;

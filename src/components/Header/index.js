@@ -40,6 +40,16 @@ class Header extends Component {
       isLoggedIn: false,
      }, this.goToHome)
   };
+  
+  onClickSponsors = () => {
+    const {navigate} = this.props;
+    navigate('/sponsors')
+  }
+
+  onClickGallery = () => {
+    const {navigate} = this.props;
+    navigate('/gallery')
+  }
 
   onClickEvents = () => {
     const { navigate } = this.props;
@@ -47,26 +57,61 @@ class Header extends Component {
   };
 
   render() {
-    const { title, events } = this.props;
+    const { title } = this.props;
     const {isLoggedIn} = this.state;
 
     return (
       <div>
         <div className="header-container">
-          <Link to="/" className="home-link">
-            <img src="https://www.vvitguntur.com/images/logo.png" alt="vvit logo" />
-
-          </Link>
+          <div className="logo-container">
+            <Link to="/" className="home-link">
+              <img
+                src="https://raw.githubusercontent.com/kamal-tej/proj_images/main/viva.png"
+                alt="viva logo"
+                className="logo"
+              />
+              <img
+                src="https://www.vvitguntur.com/images/logo.png"
+                alt="vvit logo"
+                className="logo"
+              />
+            </Link>
+          </div>
           {isLoggedIn ? (
             <Button type="button" color="#dc3145" onClick={this.onClickLogout}>
               Logout
             </Button>
           ) : (
             <>
+              <Button
+                type="button"
+                color="#0e868a"
+                onClick={this.onClickSponsors}
+              >
+                Sponsors
+              </Button>
+              <Button
+                type="button"
+                color="#990fa6"
+                onClick={this.onClickGallery}
+              >
+                Gallery
+              </Button>
+              <Button
+                type="button"
+                color="#28a745"
+                onClick={this.onClickEvents}
+              >
+                Events
+              </Button>
               <Button type="button" color="#dc3145" onClick={this.onClickLogin}>
                 Login
               </Button>
-              <Button type="button" color="#0070c1" onClick={this.onClickRegister}>
+              <Button
+                type="button"
+                color="#0070c1"
+                onClick={this.onClickRegister}
+              >
                 Register
               </Button>
             </>
@@ -75,13 +120,6 @@ class Header extends Component {
         <div>
           <h1 className="main-title">{title}</h1>
         </div>
-        {events && (
-          <div className="events-button-container">
-            <Button type="button" color="#28a745" onClick={this.onClickEvents}>
-              Events
-            </Button>
-          </div>
-        )}
       </div>
     );
   }

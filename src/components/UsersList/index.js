@@ -1,5 +1,6 @@
 import { Component } from "react";
 import Cookies from "js-cookie";
+import {v4 as uuidv4} from 'uuid'
 import UserListItem from "../UserListItem";
 
 class UsersList extends Component {
@@ -56,7 +57,21 @@ class UsersList extends Component {
     console.log(vvitAccessToken);
     const response = await fetch(url, options);
     const jsonData = await response.json();
-    console.log(jsonData);
+    const convertedData = jsonData.map(eachUser => ({
+      id: uuidv4(),
+      name: eachUser.name,
+      rollNumber: eachUser.rollNo,
+      college: eachUser.college,
+      year: eachUser.year,
+      gender: eachUser.gender,
+      email: eachUser.email,
+      branch: eachUser.branch,
+      mobile: eachUser.mobile,
+    }))
+    console.log(jsonData)
+    this.setState({
+      userList: convertedData,
+    })
   };
   onChangeGender = event => {
     if(event.target.checked) {
@@ -213,6 +228,9 @@ class UsersList extends Component {
                 <th>College Name</th>
                 <th>Year</th>
                 <th>Mobile</th>
+                <th>Branch</th>
+                <th>Gender</th>
+                <th>email</th>
               </tr>
             </thead>
             <tbody>

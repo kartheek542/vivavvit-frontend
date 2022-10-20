@@ -23,7 +23,7 @@
     width: 90%;
     padding: 10px;
     display: block;
-    border: 2px solid black;
+    border: 1px solid black;
     border-radius: 10px;
     font-size: 15px;
 }
@@ -67,4 +67,14 @@
     align-items: center;
     justify-content: center;
     height: 100%;
+}
+.register-page {
+    background-size: cover;
+    height: 100vh;
+}
+.register-form {
+    padding: 10px;
+}
+.register-heading {
+    font-size: 50px;
 }

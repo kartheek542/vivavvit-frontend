@@ -251,9 +251,10 @@ class Register extends Component {
     return submitted ? (
       <SubmitSuccess />
     ) : (
-      <div>
-        <Header title="Register for VIVAVVIT" />
+      <div className="register-page">
+        <Header />
         <form onSubmit={this.onSubmitForm} className="register-form">
+          <h1 className="register-heading">Register for VIVAVVIT</h1>
           <div className="register-input-container">
             <div className="register-part-1">
               <div className="input-element-container">

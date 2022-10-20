@@ -46,7 +46,7 @@ class EventDetailItem extends Component {
     return isLoading ? (
       <Loader color="#00bfff" height={50} width={50} />
     ) : (
-      <div>
+      <div className="event-detail-page">
         <Header title={eventName} />
         <div className="event-detail-body-container">
           <div className="event-detail-matter-container">

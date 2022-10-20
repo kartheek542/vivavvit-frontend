@@ -1,0 +1,20 @@
+.gallery-wrapper {
+    padding: 20px;
+    height: 100%;
+    width: 100%;
+}
+.gallery-text-container {
+    background-image: url("https://raw.githubusercontent.com/kamal-tej/proj_images/main/Screenshot%20from%202022-10-20%2023-00-51.png");
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.gallery-heading {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 15px;
+    color: #ffffff;
+    font-size: 60px;
+}
