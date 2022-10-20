@@ -4,6 +4,7 @@ import EventCheckboxItem from "../EventCheckboxItem";
 import { Button, CategoryButton } from "../styledComponents";
 import SubmitSuccess from "../SubmitSuccess";
 import "./index.css";
+import { ThreeDots } from "react-loader-spinner";
 
 // const generateEvents = (total) => {
   // let totalEvents = [];
@@ -42,6 +43,7 @@ class Register extends Component {
     college: 'VVIT',
     gender: 'M',
     submitted: false,
+    isLoading: true,
   };
   componentDidMount() {
     this.fetchData();
@@ -58,6 +60,7 @@ class Register extends Component {
     }))
     this.setState({
       totalEvents: convertedData,
+      isLoading: false,
     })
   }
   onChangeName = (event) => {
@@ -240,6 +243,7 @@ class Register extends Component {
       formError,
       year,
       submitted,
+      isLoading,
     } = this.state;
     const filterdEvents = totalEvents.filter(
       (eachEvent) => eachEvent.eventCategory === currentEventType
@@ -304,7 +308,7 @@ class Register extends Component {
                 />
                 <p className="error-msg">{mobileError}</p>
               </div>
-                <p>Year</p>
+              <p>Year</p>
               <div className="input-element-container radio-buttons-container">
                 <div className="radio-button-container">
                   <input
@@ -356,40 +360,48 @@ class Register extends Component {
               <div className="category-buttons-container">
                 <CategoryButton
                   type="button"
-                  isActive={currentEventType === 'SPORTS'}
+                  isActive={currentEventType === "SPORTS"}
                   onClick={() => this.setCategory("SPORTS")}
                 >
                   SPORTS
                 </CategoryButton>
                 <CategoryButton
                   type="button"
-                  isActive={currentEventType === 'TECHNICAL'}
+                  isActive={currentEventType === "TECHNICAL"}
                   onClick={() => this.setCategory("TECHNICAL")}
                 >
                   TECHNICAL
                 </CategoryButton>
                 <CategoryButton
                   type="button"
-                  isActive={currentEventType === 'CULTURAL'}
+                  isActive={currentEventType === "CULTURAL"}
                   onClick={() => this.setCategory("CULTURAL")}
                 >
                   CULTURAL
                 </CategoryButton>
               </div>
-              <div className="events-checkboxs-container">
-                {filterdEvents.map((eachEvent) => (
-                  <EventCheckboxItem
-                    key={eachEvent.id}
-                    eventDetails={eachEvent}
-                    onChangeEvent={this.checkedEvent}
-                  />
-                ))}
-              </div>
+              {isLoading ? (
+                <div className="events-loader-container">
+                  <ThreeDots height={80} width={80} color="#bac5d6" />
+                </div>
+              ) : (
+                <div className="events-checkboxs-container">
+                  {filterdEvents.map((eachEvent) => (
+                    <EventCheckboxItem
+                      key={eachEvent.id}
+                      eventDetails={eachEvent}
+                      onChangeEvent={this.checkedEvent}
+                    />
+                  ))}
+                </div>
+              )}
             </div>
           </div>
           <div className="register-submit-container">
             <p>{formError}</p>
-            <Button type="submit" color="#28a745">Submit</Button>
+            <Button type="submit" color="#28a745">
+              Submit
+            </Button>
           </div>
         </form>
       </div>

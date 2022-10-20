@@ -1,8 +1,9 @@
 import { Component } from "react";
+import Header from '../Header'
 import Cookies from 'js-cookie';
 import withRouter from "../withRouter";
 import "./index.css";
-import { Navigate } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
 class Login extends Component {
   state = {
@@ -103,11 +104,12 @@ class Login extends Component {
       <Navigate replace to="/coordinator" />
     ) : (
       <div>
-        <div>
-          <form onSubmit={this.onSubmitForm}>
-            <h1>Login Here</h1>
-            <div>
-              <label htmlFor="rollNumber">ROLL NUMBER</label>
+        <Header />
+        <div className="login-form-container">
+          <form onSubmit={this.onSubmitForm} className="login-form">
+            <h1>Login As Coordinator</h1>
+            <div className="login-input-container">
+              <label htmlFor="rollNumber" className="login-input-label">ROLL NUMBER</label>
               <input
                 id="rollNumber"
                 type="text"
@@ -115,11 +117,12 @@ class Login extends Component {
                 value={username}
                 onChange={this.onChangeUsername}
                 onBlur={this.onBlurUsername}
+                className="login-input"
               />
-              <p>{usernameError}</p>
+              <p className="error-msg">{usernameError}</p>
             </div>
-            <div>
-              <label htmlFor="password">PASSWORD</label>
+            <div className="login-input-container">
+              <label htmlFor="password" className="login-input-label">PASSWORD</label>
               <input
                 id="password"
                 type="password"
@@ -127,13 +130,15 @@ class Login extends Component {
                 value={password}
                 onChange={this.onChangePassword}
                 onBlur={this.onBlurPassword}
+                className="login-input"
               />
-              <p>{passwordError}</p>
+              <p className="error-msg">{passwordError}</p>
             </div>
-            <p>{formErrorMsg}</p>
-            <div>
-              <button type="submit">Login</button>
+            <p className="error-msg">{formErrorMsg}</p>
+            <div className="login-button-container">
+              <button type="submit" className="login-button">Login</button>
             </div>
+            <Link to="/register" className="login-register-link">Not a coordinator, Register here</Link>
           </form>
         </div>
       </div>
