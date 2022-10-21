@@ -2,6 +2,7 @@ import Cookies from "js-cookie";
 import { Component } from "react";
 import { Navigate } from "react-router-dom";
 import Header from "../Header";
+import "./index.css"
 
 class CoordinatorEventEdit extends Component {
   state = {
@@ -160,7 +161,7 @@ class CoordinatorEventEdit extends Component {
     return vvitAccessToken === undefined ? (
       <Navigate replace to="/login" />
     ) : (
-      <div>
+      <div className="coordinator-edit-page">
         <Header title={eventName} />
         <div>
           <form onSubmit={this.onSubmitForm}>
