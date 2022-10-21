@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Silkscreen");
+@import url("https://fonts.googleapis.com/css?family=Roboto");
 .home-page {
     display: flex;
     flex-direction: column;
@@ -22,7 +23,7 @@
 }
 .main-page-heading {
     font-size: 70px;
-    font-family: 'Silkscreen';
+    font-family: 'Roboto';
     letter-spacing: 70px;
 }
 .page-1-container {

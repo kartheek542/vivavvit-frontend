@@ -13,7 +13,6 @@ class Home extends Component {
         <div className="home-body-container">
           <div className="home-sub-section section-1">
             <div className="page-1-container">
-              <p>Welcome to</p>
               <h1 className="main-page-heading">VIVAVVIT</h1>
             </div>
           </div>

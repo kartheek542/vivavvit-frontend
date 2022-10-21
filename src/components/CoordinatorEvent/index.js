@@ -40,7 +40,7 @@ class CoordinatorEvent extends Component {
     return vvitAccessToken === undefined ? (
       <Navigate replace to="/login" />
     ) : (
-      <div>
+      <div className="coordinator-event-page">
         <Header title={eventName} />
         <div>
           <button type="button" onClick={this.onClickEdit}>
