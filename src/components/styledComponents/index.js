@@ -24,3 +24,8 @@ export const CategoryButton = styled.button`
   border-bottom-width: 10px;
   border-bottom-style: ${props => (props.isActive ? 'solid': 'none')}
 `
+
+export const FButton = styled(Button)`
+  width: 100%;
+  margin-left: 0px;
+`

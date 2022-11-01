@@ -2,3 +2,30 @@
     height: 100vh;
     overflow-y: auto;
 }
+.input-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+.event-edit-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.event-edit-form {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 40px;
+}
+.save-button-container {
+    display: flex;
+    justify-content: center;
+}
+.text-input-field {
+    padding: 5px;
+    font-size: 15px;
+}
+.event-description {
+    height: 100px;
+}

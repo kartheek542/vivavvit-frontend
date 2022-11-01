@@ -70,19 +70,8 @@ class Header extends Component {
                 alt="viva logo"
                 className="logo"
               />
-              <img
-                src="https://www.vvitguntur.com/images/logo.png"
-                alt="vvit logo"
-                className="logo"
-              />
             </Link>
-          </div>
-          {isLoggedIn ? (
-            <Button type="button" color="#dc3145" onClick={this.onClickLogout}>
-              Logout
-            </Button>
-          ) : (
-            <>
+            <div className="events-buttons-container">
               <Button
                 type="button"
                 color="#0e868a"
@@ -104,9 +93,6 @@ class Header extends Component {
               >
                 Events
               </Button>
-              <Button type="button" color="#dc3145" onClick={this.onClickLogin}>
-                Login
-              </Button>
               <Button
                 type="button"
                 color="#0070c1"
@@ -114,8 +100,33 @@ class Header extends Component {
               >
                 Register
               </Button>
-            </>
-          )}
+              {isLoggedIn ? (
+                <Button
+                  type="button"
+                  color="#dc3145"
+                  onClick={this.onClickLogout}
+                >
+                  Logout
+                </Button>
+              ) : (
+                <Button
+                  type="button"
+                  color="#dc3145"
+                  onClick={this.onClickLogin}
+                >
+                  Login
+                </Button>
+              )}
+            </div>
+
+            <Link to="/" className="home-link">
+              <img
+                src="https://www.vvitguntur.com/images/logo.png"
+                alt="vvit logo"
+                className="logo"
+              />
+            </Link>
+          </div>
         </div>
         <div>
           <h1 className="main-title">{title}</h1>

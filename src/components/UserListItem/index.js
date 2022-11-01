@@ -4,16 +4,16 @@ const UserListItem = props => {
     const {userDetails} = props
     const {name, rollNumber, college, mobile, year, branch, gender, email} = userDetails;
     return (
-        <tr>
-            <td>{name}</td>
-            <td>{rollNumber}</td>
-            <td>{college}</td>
-            <td>{year}</td>
-            <td>{mobile}</td>
-            <td>{branch}</td>
-            <td>{gender === 'M' ? 'Male' : 'Female'}</td>
-            <td>{email}</td>
-        </tr>
+        <div className="user-row">
+            <div className="col col-1">{name}</div>
+            <div className="col col-2">{rollNumber}</div>
+            <div className="col col-3">{college}</div>
+            <div className="col col-4">{year}</div>
+            <div className="col col-5">{mobile}</div>
+            <div className="col col-6">{branch}</div>
+            <div className="col col-7">{gender === 'M' ? 'Male' : 'Female'}</div>
+            <div className="col col-8">{email}</div>
+        </div>
     )
 }
 

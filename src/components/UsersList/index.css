@@ -1,0 +1,51 @@
+.user-details-container {
+    display: flex;
+    height: 100%;
+}
+.filters-container {
+    width: 20%;
+    border-right: 1px solid black;
+}
+.user-list-container {
+    flex-grow: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.head-row {
+    font-weight: bold;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    background-color: #212529;
+    color: #ffffff;
+}
+.user-items-container {
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.user-details-table {
+    overflow-y: auto;
+    height: 350px;
+}
+.registered-users-heading {
+    text-align: center;
+}
+.table-container {
+    flex-grow: 1;
+}
+.download-button-container {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+}
+.filter-items-container {
+    display: flex;
+}
+.filter-item {
+    margin-right: 20px;
+}
+.filter-heading {
+    margin-left: 10px;
+    font-weight: bold;
+}

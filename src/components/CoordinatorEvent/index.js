@@ -3,7 +3,9 @@ import Header from "../Header";
 import UsersList from "../UsersList";
 import Cookies from "js-cookie";
 import withRouter from "../withRouter";
+import {Button} from "../styledComponents"
 import { Navigate } from "react-router-dom";
+import "./index.css"
 
 class CoordinatorEvent extends Component {
   state = {
@@ -40,12 +42,12 @@ class CoordinatorEvent extends Component {
     return vvitAccessToken === undefined ? (
       <Navigate replace to="/login" />
     ) : (
-      <div className="coordinator-event-page">
+      <div className="coordinator-event-page full-page">
         <Header title={eventName} />
-        <div>
-          <button type="button" onClick={this.onClickEdit}>
+        <div className="edit-button-container">
+          <Button type="button" color="#0070c1" onClick={this.onClickEdit}>
             Edit event details
-          </button>
+          </Button>
         </div>
         <UsersList eventId={eventId} />
       </div>

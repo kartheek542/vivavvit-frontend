@@ -2,35 +2,12 @@ import { Component } from "react";
 import Cookies from "js-cookie";
 import {v4 as uuidv4} from 'uuid'
 import UserListItem from "../UserListItem";
+import {Button} from "../styledComponents"
+import "./index.css"
 
 class UsersList extends Component {
   state = {
-    userList: [
-      {
-        id: "1",
-        name: "rahul",
-        rollNumber: "19bq1a0542",
-        college: "vvit",
-        year: "1",
-        mobile: "1234",
-      },
-      {
-        id: "2",
-        name: "rahul",
-        rollNumber: "19bq1a0542",
-        college: "vvit",
-        year: "1",
-        mobile: "1234",
-      },
-      {
-        id: "3",
-        name: "rahul",
-        rollNumber: "19bq1a0542",
-        college: "vvit",
-        year: "1",
-        mobile: "1234",
-      },
-    ],
+    userList: [],
     sortBy: 'name',
     genders: ['M', 'F'],
     years: [1, 2, 3, 4],
@@ -68,11 +45,29 @@ class UsersList extends Component {
       branch: eachUser.branch,
       mobile: eachUser.mobile,
     }))
-    console.log(jsonData)
     this.setState({
       userList: convertedData,
     })
   };
+  onClickDownload = () => {
+    const {genders, years, sortBy} = this.state;
+    const vvitAccessToken = Cookies.get('vvitAccessToken')
+    // const url = `https://vivavvit.herokuapp.com/coordinator/reports/download?order_by=${sortBy}`;
+    const url = `http://localhost:8080/coordinator/reports/download?order_by=${sortBy}`;
+    const options = {
+      method: 'POST',
+      headers: {
+        authorization: `Bearer ${vvitAccessToken}`,
+       'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        gender: genders,
+        year: years,
+      })
+    }
+    fetch(url, options);
+
+  }
   onChangeGender = event => {
     if(event.target.checked) {
       this.setState(prevState => ({
@@ -113,9 +108,9 @@ class UsersList extends Component {
     return (
       <>
         <h1>Filters</h1>
-        <div>
-          <p>Sort By: </p>
-          <div>
+        <p className="filter-heading">Sort By: </p>
+        <div className="filter-items-container">
+          <div className="filter-item">
             <input
               type="radio"
               name="sort"
@@ -126,7 +121,7 @@ class UsersList extends Component {
             />
             <label htmlFor="sortByName">Name</label>
           </div>
-          <div>
+          <div className="filter-item">
             <input
               type="radio"
               name="sort"
@@ -138,9 +133,9 @@ class UsersList extends Component {
             <label htmlFor="sortByRoll">Roll</label>
           </div>
         </div>
-        <div>
-          <p>Gender</p>
-          <div>
+        <p className="filter-heading">Gender</p>
+        <div className="filter-items-container">
+          <div className="filter-item">
             <input
               type="checkbox"
               checked={male}
@@ -151,7 +146,7 @@ class UsersList extends Component {
             />
             <label htmlFor="male">male</label>
           </div>
-          <div>
+          <div className="filter-item">
             <input
               type="checkbox"
               checked={female}
@@ -163,9 +158,9 @@ class UsersList extends Component {
             <label htmlFor="female">female</label>
           </div>
         </div>
-        <div>
-          <p>Year</p>
-          <div>
+        <p className="filter-heading">Year</p>
+        <div className="filter-items-container">
+          <div className="filter-item">
             <input
               type="checkbox"
               checked={years.includes(1)}
@@ -176,7 +171,7 @@ class UsersList extends Component {
             />
             <label htmlFor="year1">1</label>
           </div>
-          <div>
+          <div className="filter-item">
             <input
               type="checkbox"
               checked={years.includes(2)}
@@ -187,7 +182,7 @@ class UsersList extends Component {
             />
             <label htmlFor="year2">2</label>
           </div>
-          <div>
+          <div className="filter-item">
             <input
               type="checkbox"
               checked={years.includes(3)}
@@ -198,7 +193,7 @@ class UsersList extends Component {
             />
             <label htmlFor="year1">3</label>
           </div>
-          <div>
+          <div className="filter-item">
             <input
               type="checkbox"
               checked={years.includes(4)}
@@ -216,29 +211,36 @@ class UsersList extends Component {
   render() {
     const { userList } = this.state;
     return (
-      <div>
-        <div>{this.renderFilters()}</div>
-        <div>
-          <h1>Registerd Users</h1>
-          <table>
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Roll Number</th>
-                <th>College Name</th>
-                <th>Year</th>
-                <th>Mobile</th>
-                <th>Branch</th>
-                <th>Gender</th>
-                <th>email</th>
-              </tr>
-            </thead>
-            <tbody>
-              {userList.map((eachUser) => (
-                <UserListItem key={eachUser.id} userDetails={eachUser} />
-              ))}
-            </tbody>
-          </table>
+      <div className="user-details-container">
+        <div className="filters-container">{this.renderFilters()}</div>
+        <div className="user-list-container">
+          <h1 className="registered-users-heading">Registered Users</h1>
+          <div className="user-items-container">
+            <div className="user-row head-row">
+              <tr className="col col-1 col-head">Name</tr>
+              <tr className="col col-2 col-head">Roll Number</tr>
+              <tr className="col col-3 col-head">College Name</tr>
+              <tr className="col col-4 col-head">Year</tr>
+              <tr className="col col-5 col-head">Mobile</tr>
+              <tr className="col col-6 col-head">Branch</tr>
+              <tr className="col col-7 col-head">Gender</tr>
+              <tr className="col col-8 col-head">Email</tr>
+            </div>
+          </div>
+          <div className="user-items-container user-details-table">
+            {userList.map((eachUser) => (
+              <UserListItem key={eachUser.id} userDetails={eachUser} />
+            ))}
+          </div>
+          <div className="download-button-container">
+            <Button
+              type="button"
+              color="#0070c1"
+              onClick={this.onClickDownload}
+            >
+              Download
+            </Button>
+          </div>
         </div>
       </div>
     );
