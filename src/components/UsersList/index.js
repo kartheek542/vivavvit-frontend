@@ -49,7 +49,7 @@ class UsersList extends Component {
       userList: convertedData,
     })
   };
-  onClickDownload = () => {
+  onClickDownload = async () => {
     const {genders, years, sortBy} = this.state;
     const vvitAccessToken = Cookies.get('vvitAccessToken')
     // const url = `https://vivavvit.herokuapp.com/coordinator/reports/download?order_by=${sortBy}`;
@@ -65,7 +65,11 @@ class UsersList extends Component {
         year: years,
       })
     }
-    fetch(url, options);
+    await fetch(url, options);
+    const dl = document.createElement('a');
+    dl.href = "http://localhost:8080/coordinator/reports/downloadfile";
+    dl.target = "_blank";
+    dl.click();
 
   }
   onChangeGender = event => {
@@ -237,6 +241,7 @@ class UsersList extends Component {
               type="button"
               color="#0070c1"
               onClick={this.onClickDownload}
+              as="a"
             >
               Download
             </Button>

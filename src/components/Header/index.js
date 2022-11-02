@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { Button } from "../styledComponents";
+import { Button, HButton } from "../styledComponents";
 import { Link } from "react-router-dom";
 import withRouter from "../withRouter";
 import Cookies from "js-cookie";
@@ -72,50 +72,50 @@ class Header extends Component {
               />
             </Link>
             <div className="events-buttons-container">
-              <Button
+              <HButton
                 type="button"
                 color="#0e868a"
                 onClick={this.onClickSponsors}
               >
                 Sponsors
-              </Button>
-              <Button
+              </HButton>
+              <HButton
                 type="button"
                 color="#990fa6"
                 onClick={this.onClickGallery}
               >
                 Gallery
-              </Button>
-              <Button
+              </HButton>
+              <HButton
                 type="button"
                 color="#28a745"
                 onClick={this.onClickEvents}
               >
                 Events
-              </Button>
-              <Button
+              </HButton>
+              <HButton
                 type="button"
                 color="#0070c1"
                 onClick={this.onClickRegister}
               >
                 Register
-              </Button>
+              </HButton>
               {isLoggedIn ? (
-                <Button
+                <HButton
                   type="button"
                   color="#dc3145"
                   onClick={this.onClickLogout}
                 >
                   Logout
-                </Button>
+                </HButton>
               ) : (
-                <Button
+                <HButton
                   type="button"
                   color="#dc3145"
                   onClick={this.onClickLogin}
                 >
                   Login
-                </Button>
+                </HButton>
               )}
             </div>
 

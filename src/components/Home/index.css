@@ -4,13 +4,16 @@
     display: flex;
     flex-direction: column;
     height: 100vh;
-    /* background-color: #928dab; */
-    /* background-image: linear-gradient(120deg, #928dab 59%, #1f1c2c 100%); */
+    background-image: url('https://raw.githubusercontent.com/kartheek542/ubuntu-test/main/fest-home.jpg');
+    background-size: cover;
 }
 .home-body-container {
     flex-grow: 1;
     scroll-snap-type: y mandatory;
     overflow-y: scroll;
+}
+.home-body-container::-webkit-scrollbar {
+  display: none;
 }
 .home-sub-section {
     height: 100%;

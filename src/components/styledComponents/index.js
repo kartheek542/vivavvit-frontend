@@ -25,6 +25,12 @@ export const CategoryButton = styled.button`
   border-bottom-style: ${props => (props.isActive ? 'solid': 'none')}
 `
 
+export const HButton = styled(Button)`
+  background-color: transparent;
+  border-color: #ffffff;
+  border-radius: 20px;
+`
+
 export const FButton = styled(Button)`
   width: 100%;
   margin-left: 0px;
