@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { Button, HButton } from "../styledComponents";
+import { HButton } from "../styledComponents";
 import { Link } from "react-router-dom";
 import withRouter from "../withRouter";
 import Cookies from "js-cookie";
