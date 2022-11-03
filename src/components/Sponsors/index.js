@@ -2,7 +2,7 @@ import Header from "../Header";
 
 const Sponsors = () => (
   <div className="home-page">
-    <Header />
+    <Header page="SPONSORS" />
     <div className="home-body-container">
       <div className="home-sub-section" id="sponsors">
         <div className="wrapper-container">

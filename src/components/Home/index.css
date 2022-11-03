@@ -24,10 +24,17 @@
     justify-content: center;
     align-items: center;
 }
+@keyframes fadeIn {
+    0% { opacity: 0;}
+    65% { opacity: 0.65;}
+}
 .main-page-heading {
     font-size: 70px;
     font-family: 'Roboto';
     letter-spacing: 70px;
+    color: white;
+    opacity: 65%;
+    animation: fadeIn 5s;
 }
 .page-1-container {
     padding: 0px;
@@ -48,8 +55,10 @@
     align-items: center;
 }
 .contact-heading {
-    font-family: 'Silkscreen';
     font-size: 50px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
 }
 .contact-heading-container {
     padding-right: 50px;
@@ -58,6 +67,9 @@
 .contact-details-container {
     margin-left: 50px;
     margin-right: 50px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
 }
 .user-image {
     width: 200px;
@@ -75,6 +87,9 @@
 .quote-content-container {
     text-align: right;
     width: 50%;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
 }
 .sponsors-container {
     display: flex;
@@ -91,4 +106,20 @@
 }
 .sponsors-heading {
     margin-bottom: 80px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+}
+.quote-image-container {
+    margin-right: 10px;
+}
+.sponsor-name {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+}
+.social-icons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

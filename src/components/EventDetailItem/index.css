@@ -1,12 +1,15 @@
 .event-detail-body-container {
-    display: flex;
-    justify-content: space-between;
+    width: 100vw;
+    padding: 10px;
 }
 .event-detail-image-container {
     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .event-detail-image {
-    width: 100%;
+    height: 350px;
 }
 .event-detail-matter-container {
     margin-right: 15px;
@@ -15,7 +18,7 @@
     justify-content: space-between;
 }
 .event-detail-details {
-    align-self: flex-end;
+    align-self: flex-start;
 }
 
 .detail-desc {
@@ -23,4 +26,12 @@
 }
 .event-detail-page {
     height: 100vh;
+}
+.event-detail-heading {
+    font-size: 30px;
+    text-align: center;
+    margin: 0px;
+}
+.event-detail-desc-heading {
+    font-size: 20px;
 }

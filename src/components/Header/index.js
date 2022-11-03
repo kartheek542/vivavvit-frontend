@@ -57,7 +57,7 @@ class Header extends Component {
   };
 
   render() {
-    const { title } = this.props;
+    const { title, page } = this.props;
     const {isLoggedIn} = this.state;
 
     return (
@@ -76,6 +76,7 @@ class Header extends Component {
                 type="button"
                 color="#0e868a"
                 onClick={this.onClickSponsors}
+                active={page === 'SPONSORS'}
               >
                 Sponsors
               </HButton>
@@ -83,6 +84,7 @@ class Header extends Component {
                 type="button"
                 color="#990fa6"
                 onClick={this.onClickGallery}
+                active={page === 'GALLERY'}
               >
                 Gallery
               </HButton>
@@ -90,6 +92,7 @@ class Header extends Component {
                 type="button"
                 color="#28a745"
                 onClick={this.onClickEvents}
+                active={page === 'EVENTS'}
               >
                 Events
               </HButton>
@@ -97,6 +100,7 @@ class Header extends Component {
                 type="button"
                 color="#0070c1"
                 onClick={this.onClickRegister}
+                active={page === 'REGISTER'}
               >
                 Register
               </HButton>
@@ -105,6 +109,7 @@ class Header extends Component {
                   type="button"
                   color="#dc3145"
                   onClick={this.onClickLogout}
+                  active={page === 'LOGIN'}
                 >
                   Logout
                 </HButton>
@@ -113,6 +118,7 @@ class Header extends Component {
                   type="button"
                   color="#dc3145"
                   onClick={this.onClickLogin}
+                  active={page === 'LOGIN'}
                 >
                   Login
                 </HButton>

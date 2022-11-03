@@ -104,7 +104,7 @@ class Login extends Component {
       <Navigate replace to="/coordinator" />
     ) : (
       <div className="login-page">
-        <Header />
+        <Header page="LOGIN" />
         <div className="login-form-container">
           <form onSubmit={this.onSubmitForm} className="login-form">
             <h1>Login As Coordinator</h1>

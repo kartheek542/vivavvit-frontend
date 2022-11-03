@@ -25,6 +25,7 @@ class Events extends Component {
       eventName: eachItem.eventName,
       eventCategory: eachItem.category.toUpperCase(),
       eventImageUrl: eachItem.imageUrl,
+      registered: 0,
     }));
     this.setState({
       events: convertedData,
@@ -41,37 +42,39 @@ class Events extends Component {
     );
     return (
       <div className="events-page">
-        <Header />
+        <Header page="EVENTS" />
+        <>
+          <div className="events-title">
+            <h1 className="events-heading">Events</h1>
+          </div>
+          <div className="category-buttons-container">
+            <CategoryButton
+              type="button"
+              isActive={activeCategory === "SPORTS"}
+              onClick={() => this.setCategory("SPORTS")}
+            >
+              SPORTS
+            </CategoryButton>
+            <CategoryButton
+              type="button"
+              isActive={activeCategory === "TECHNICAL"}
+              onClick={() => this.setCategory("TECHNICAL")}
+            >
+              TECHNICAL
+            </CategoryButton>
+            <CategoryButton
+              type="button"
+              isActive={activeCategory === "CULTURAL"}
+              onClick={() => this.setCategory("CULTURAL")}
+            >
+              CULTURAL
+            </CategoryButton>
+          </div>
+        </>
         {isLoading ? (
           <Loader color="#00bfff" height={50} width={50} />
         ) : (
           <>
-            <div className="events-title">
-              <h1 className="events-heading">Events</h1>
-            </div>
-            <div className="category-buttons-container">
-              <CategoryButton
-                type="button"
-                isActive={activeCategory === "SPORTS"}
-                onClick={() => this.setCategory("SPORTS")}
-              >
-                SPORTS
-              </CategoryButton>
-              <CategoryButton
-                type="button"
-                isActive={activeCategory === "TECHNICAL"}
-                onClick={() => this.setCategory("TECHNICAL")}
-              >
-                TECHNICAL
-              </CategoryButton>
-              <CategoryButton
-                type="button"
-                isActive={activeCategory === "CULTURAL"}
-                onClick={() => this.setCategory("CULTURAL")}
-              >
-                CULTURAL
-              </CategoryButton>
-            </div>
             <div className="events-list-container">
               {filteredEvents.map((eachEvent) => (
                 <EventItem key={eachEvent.id} eventDetails={eachEvent} />

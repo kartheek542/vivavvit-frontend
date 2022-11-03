@@ -26,9 +26,14 @@ export const CategoryButton = styled.button`
 `
 
 export const HButton = styled(Button)`
-  background-color: transparent;
   border-color: #ffffff;
   border-radius: 20px;
+  background-color: ${props => props.active ? '#ffffff' : 'transparent'};
+  color: ${props => props.active ? '#000000' : '#ffffff'};
+  &:hover {
+    background-color: #ffffff;
+    color: #000000;
+  }
 `
 
 export const FButton = styled(Button)`

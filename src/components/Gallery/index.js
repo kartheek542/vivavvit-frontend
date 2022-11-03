@@ -3,7 +3,7 @@ import "./index.css"
 
 const Gallery = () => (
   <div className="home-page">
-    <Header />
+    <Header page="GALLERY" />
     <div className="home-body-container">
       <div className="home-sub-section">
         <div className="gallery-wrapper">

@@ -4,7 +4,7 @@ import { BsArrowRight } from "react-icons/bs";
 
 const EventItem = (props) => {
   const { eventDetails } = props;
-  const { eventImageUrl, eventName, id } = eventDetails;
+  const { eventImageUrl, eventName, id, registered } = eventDetails;
   const url = `/events/${id}`;
 
   return (
@@ -12,7 +12,10 @@ const EventItem = (props) => {
       <Link to={url} className="link">
         <img src={eventImageUrl} alt={eventName} className="event-image" />
         <div className="mini-event-text">
-          <p>{eventName}</p>
+          <div>
+            <p className="event-item-name">{eventName}</p>
+            <p className="event-register-number">Registered: {registered}</p>
+          </div>
           <BsArrowRight />
         </div>
       </Link>

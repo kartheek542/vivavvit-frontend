@@ -51,7 +51,7 @@ class Home extends Component {
                       className="sponsor-image"
                     />
                   </div>
-                  <p>JLE Cinemas</p>
+                  <p className="sponsor-name">JLE Cinemas</p>
                 </div>
                 <div className="sponsor">
                   <div>
@@ -61,7 +61,7 @@ class Home extends Component {
                       className="sponsor-image"
                     />
                   </div>
-                  <p>mane's The Saloon</p>
+                  <p className="sponsor-name">mane's The Saloon</p>
                 </div>
                 <div className="sponsor">
                   <div>
@@ -71,7 +71,7 @@ class Home extends Component {
                       className="sponsor-image"
                     />
                   </div>
-                  <p>VR Overseas</p>
+                  <p className="sponsor-name">VR Overseas</p>
                 </div>
                 <div className="sponsor">
                   <div>
@@ -81,7 +81,7 @@ class Home extends Component {
                       className="sponsor-image"
                     />
                   </div>
-                  <p>Happy Jump Trampoline Park</p>
+                  <p className="sponsor-name">Happy Jump Trampoline Park</p>
                 </div>
               </div>
             </div>
@@ -108,7 +108,7 @@ class Home extends Component {
                     <TiLocation />
                     <p>Nambur 522008</p>
                   </div>
-                  <div>
+                  <div className="social-icons-container">
                     <a
                       href="https://www.facebook.com/vivavvit/"
                       className="social-icons-link"

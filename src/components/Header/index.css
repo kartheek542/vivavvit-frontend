@@ -1,5 +1,6 @@
 .header-container {
     /* background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(255,236,231,1) 0%, rgba(255,143,108,1) 90.1% ); */
+    background-color: rgba(46, 48, 46, 0.7);
 }
 .logo-container{
     display: flex;

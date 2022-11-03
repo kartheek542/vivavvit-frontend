@@ -252,7 +252,7 @@ class Register extends Component {
       <SubmitSuccess />
     ) : (
       <div className="register-page">
-        <Header />
+        <Header page="REGISTER" />
         <form onSubmit={this.onSubmitForm} className="register-form">
           <h1 className="register-heading">Register for VIVAVVIT</h1>
           <div className="register-input-container">

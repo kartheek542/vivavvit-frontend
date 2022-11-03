@@ -47,11 +47,19 @@ class EventDetailItem extends Component {
       <Loader color="#00bfff" height={50} width={50} />
     ) : (
       <div className="event-detail-page">
-        <Header title={eventName} />
+        <Header page="EVENTS" />
+        <h1 className="event-detail-heading">{eventName}</h1>
         <div className="event-detail-body-container">
+          <div className="event-detail-image-container">
+            <img
+              src={eventImageUrl}
+              alt="event detail"
+              className="event-detail-image"
+            />
+          </div>
           <div className="event-detail-matter-container">
             <div>
-              <h1>About the event</h1>
+              <h1 className="event-detail-desc-heading">About the event</h1>
               <p>{eventDescription}</p>
             </div>
             <div className="event-detail-details">
@@ -65,13 +73,6 @@ class EventDetailItem extends Component {
                 <span className="detail-desc">Event Time</span>: {eventTime}
               </p>
             </div>
-          </div>
-          <div className="event-detail-image-container">
-            <img
-              src={eventImageUrl}
-              alt="event detail"
-              className="event-detail-image"
-            />
           </div>
         </div>
       </div>
