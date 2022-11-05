@@ -6,6 +6,7 @@ import EventItem from "../EventItem";
 import "./index.css";
 
 const CATEGORY = "SPORTS";
+// this is a comment
 
 class Events extends Component {
   state = {
