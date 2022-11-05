@@ -4,7 +4,7 @@ import Cookies from 'js-cookie';
 import withRouter from "../withRouter";
 import "./index.css";
 import { Link, Navigate } from "react-router-dom";
-import { FallingLines, Bars } from "react-loader-spinner";
+import { Bars } from "react-loader-spinner";
 
 class Login extends Component {
   state = {
