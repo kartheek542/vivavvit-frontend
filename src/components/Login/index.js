@@ -4,6 +4,7 @@ import Cookies from 'js-cookie';
 import withRouter from "../withRouter";
 import "./index.css";
 import { Link, Navigate } from "react-router-dom";
+import { FallingLines, Bars } from "react-loader-spinner";
 
 class Login extends Component {
   state = {
@@ -12,6 +13,7 @@ class Login extends Component {
     usernameError: "",
     passwordError: "",
     formErrorMsg: '',
+    isLoading: false,
   };
   onChangeUsername = (event) => {
     this.setState({
@@ -75,8 +77,14 @@ class Login extends Component {
         password,
       }),
     };
+    this.setState({
+      isLoading: true,
+    })
     const response = await fetch(url, options);
     const jsonData = await response.json();
+    this.setState({
+      isLoading: false,
+    })
     console.log(jsonData)
     const {vvitAccessToken, errorMsg} = jsonData;
     if(vvitAccessToken === undefined) {
@@ -92,13 +100,16 @@ class Login extends Component {
     let stat = this.onBlurUsername();
     stat = stat && this.onBlurPassword();
     if (stat) {
+      // this.setState({
+      //   isLoading: true,
+      // }, this.submitData());
       this.submitData();
     } else {
       console.log("login failed");
     }
   };
   render() {
-    const { username, password, usernameError, passwordError, formErrorMsg} = this.state;
+    const { username, password, usernameError, passwordError, formErrorMsg, isLoading} = this.state;
     const vvitAccessToken = Cookies.get('vvitAccessToken')
     return vvitAccessToken !== undefined ? (
       <Navigate replace to="/coordinator" />
@@ -109,7 +120,9 @@ class Login extends Component {
           <form onSubmit={this.onSubmitForm} className="login-form">
             <h1>Login As Coordinator</h1>
             <div className="login-input-container">
-              <label htmlFor="rollNumber" className="login-input-label">ROLL NUMBER</label>
+              <label htmlFor="rollNumber" className="login-input-label">
+                ROLL NUMBER
+              </label>
               <input
                 id="rollNumber"
                 type="text"
@@ -122,7 +135,9 @@ class Login extends Component {
               <p className="error-msg">{usernameError}</p>
             </div>
             <div className="login-input-container">
-              <label htmlFor="password" className="login-input-label">PASSWORD</label>
+              <label htmlFor="password" className="login-input-label">
+                PASSWORD
+              </label>
               <input
                 id="password"
                 type="password"
@@ -135,10 +150,28 @@ class Login extends Component {
               <p className="error-msg">{passwordError}</p>
             </div>
             <p className="error-msg">{formErrorMsg}</p>
-            <div className="login-button-container">
-              <button type="submit" className="login-button">Login</button>
-            </div>
-            <Link to="/register" className="login-register-link">Not a coordinator, Register here</Link>
+            {isLoading ? (
+              <div>
+                <Bars
+                  height="40"
+                  width="40"
+                  color="#4fa94d"
+                  ariaLabel="bars-loading"
+                  wrapperStyle={{}}
+                  wrapperClass=""
+                  visible={true}
+                />
+              </div>
+            ) : (
+              <div className="login-button-container">
+                <button type="submit" className="login-button">
+                  Login
+                </button>
+              </div>
+            )}
+            <Link to="/register" className="login-register-link">
+              Not a coordinator, Register here
+            </Link>
           </form>
         </div>
       </div>

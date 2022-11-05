@@ -66,7 +66,7 @@ class Header extends Component {
           <div className="logo-container">
             <Link to="/" className="home-link">
               <img
-                src="https://raw.githubusercontent.com/kamal-tej/proj_images/main/viva.png"
+                src="https://www.vvitguntur.com/images/logo.png"
                 alt="viva logo"
                 className="logo"
               />
@@ -76,7 +76,7 @@ class Header extends Component {
                 type="button"
                 color="#0e868a"
                 onClick={this.onClickSponsors}
-                active={page === 'SPONSORS'}
+                active={page === "SPONSORS"}
               >
                 Sponsors
               </HButton>
@@ -84,7 +84,7 @@ class Header extends Component {
                 type="button"
                 color="#990fa6"
                 onClick={this.onClickGallery}
-                active={page === 'GALLERY'}
+                active={page === "GALLERY"}
               >
                 Gallery
               </HButton>
@@ -92,7 +92,7 @@ class Header extends Component {
                 type="button"
                 color="#28a745"
                 onClick={this.onClickEvents}
-                active={page === 'EVENTS'}
+                active={page === "EVENTS"}
               >
                 Events
               </HButton>
@@ -100,7 +100,7 @@ class Header extends Component {
                 type="button"
                 color="#0070c1"
                 onClick={this.onClickRegister}
-                active={page === 'REGISTER'}
+                active={page === "REGISTER"}
               >
                 Register
               </HButton>
@@ -109,7 +109,7 @@ class Header extends Component {
                   type="button"
                   color="#dc3145"
                   onClick={this.onClickLogout}
-                  active={page === 'LOGIN'}
+                  active={page === "LOGIN"}
                 >
                   Logout
                 </HButton>
@@ -118,20 +118,13 @@ class Header extends Component {
                   type="button"
                   color="#dc3145"
                   onClick={this.onClickLogin}
-                  active={page === 'LOGIN'}
+                  active={page === "LOGIN"}
                 >
                   Login
                 </HButton>
               )}
             </div>
-
-            <Link to="/" className="home-link">
-              <img
-                src="https://www.vvitguntur.com/images/logo.png"
-                alt="vvit logo"
-                className="logo"
-              />
-            </Link>
+            <div className="empty"> </div>
           </div>
         </div>
         <div>

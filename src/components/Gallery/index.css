@@ -4,7 +4,8 @@
     width: 100%;
 }
 .gallery-text-container {
-    background-image: url("https://raw.githubusercontent.com/kamal-tej/proj_images/main/Screenshot%20from%202022-10-20%2023-00-51.png");
+    background-image: url("https://raw.githubusercontent.com/kartheek542/ubuntu-test/main/My%20project-1-min.png");
+    background-size: cover;
     height: 100%;
     width: 100%;
     background-size: cover;

@@ -52,8 +52,8 @@ class UsersList extends Component {
   onClickDownload = async () => {
     const {genders, years, sortBy} = this.state;
     const vvitAccessToken = Cookies.get('vvitAccessToken')
-    // const url = `https://vivavvit.herokuapp.com/coordinator/reports/download?order_by=${sortBy}`;
-    const url = `http://localhost:8080/coordinator/reports/download?order_by=${sortBy}`;
+    const url = `https://vivavvit.herokuapp.com/coordinator/reports/download?order_by=${sortBy}`;
+    // const url = `http://localhost:8080/coordinator/reports/download?order_by=${sortBy}`;
     const options = {
       method: 'POST',
       headers: {
@@ -67,7 +67,7 @@ class UsersList extends Component {
     }
     await fetch(url, options);
     const dl = document.createElement('a');
-    dl.href = "http://localhost:8080/coordinator/reports/downloadfile";
+    dl.href = "https://vivavvit.herokuapp.com/coordinator/reports/registeredfile";
     dl.target = "_blank";
     dl.click();
 

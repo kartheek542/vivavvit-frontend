@@ -42,6 +42,8 @@ class Register extends Component {
     year: '1',
     college: 'VVIT',
     gender: 'M',
+    collegeName: '',
+    collegeError: '',
     submitted: false,
     isLoading: true,
   };
@@ -170,6 +172,11 @@ class Register extends Component {
       year: event.target.value,
     })
   }
+  onChangeGender = event => {
+    this.setState({
+      gender: event.target.value,
+    })
+  }
   submitData = async () => {
     const {
       totalEvents,
@@ -178,7 +185,7 @@ class Register extends Component {
       mobileNumber,
       email,
       year,
-      college,
+      collegeName,
       gender,
       branch,
     } = this.state;
@@ -192,7 +199,7 @@ class Register extends Component {
       body: JSON.stringify({
         name,
         rollNo: rollNumber,
-        college,
+        college: collegeName,
         branch,
         year,
         email,
@@ -228,6 +235,30 @@ class Register extends Component {
       });
     }
   };
+  onChangeCollege = event => {
+    this.setState({
+      collegeName: event.target.value,
+    })
+  }
+  onBlurCollege = () => {
+    const {collegeName} = this.state;
+    if (collegeName === '') {
+      this.setState({
+        collegeError: "Required"
+      });
+    } else {
+      this.setState({
+        collegeError: '',
+      });
+      return true;
+    }
+    return false;
+  }
+  onChangeBranch = (event) => {
+    this.setState({
+      branch: event.target.value,
+    })
+  }
   render() {
     const {
       name,
@@ -244,6 +275,10 @@ class Register extends Component {
       year,
       submitted,
       isLoading,
+      collegeName,
+      collegeError,
+      gender,
+      branch
     } = this.state;
     const filterdEvents = totalEvents.filter(
       (eachEvent) => eachEvent.eventCategory === currentEventType
@@ -258,7 +293,7 @@ class Register extends Component {
           <div className="register-input-container">
             <div className="register-part-1">
               <div className="input-element-container">
-                <label htmlFor="name">NAME</label>
+                <label className="register-label" htmlFor="name">Name</label>
                 <input
                   type="text"
                   id="name"
@@ -271,7 +306,7 @@ class Register extends Component {
                 <p className="error-msg">{nameError}</p>
               </div>
               <div className="input-element-container">
-                <label htmlFor="rollNumber">ROLL NUMBER</label>
+                <label className="register-label" htmlFor="rollNumber">Roll Number</label>
                 <input
                   type="text"
                   id="rollNumber"
@@ -284,7 +319,7 @@ class Register extends Component {
                 <p className="error-msg">{rollError}</p>
               </div>
               <div className="input-element-container">
-                <label htmlFor="email">EMAIL</label>
+                <label className="register-label" htmlFor="email">Email</label>
                 <input
                   type="email"
                   id="email"
@@ -297,7 +332,7 @@ class Register extends Component {
                 <p className="error-msg">{emailError}</p>
               </div>
               <div className="input-element-container">
-                <label htmlFor="mobile">MOBILE</label>
+                <label className="register-label" htmlFor="mobile">Mobile</label>
                 <input
                   type="text"
                   id="mobile"
@@ -309,7 +344,22 @@ class Register extends Component {
                 />
                 <p className="error-msg">{mobileError}</p>
               </div>
-              <p>Year</p>
+              <div className="input-element-container">
+                <label className="register-label" htmlFor="college">College Name</label>
+                <input
+                  type="text"
+                  id="college"
+                  placeholder="Enter your college name"
+                  value={collegeName}
+                  onChange={this.onChangeCollege}
+                  onBlur={this.onBlurCollege}
+                  className="register-input"
+                />
+                <p className="error-msg">{collegeError}</p>
+              </div>
+            </div>
+            <div className="register-part-3">
+              <p className="register-label">Year</p>
               <div className="input-element-container radio-buttons-container">
                 <div className="radio-button-container">
                   <input
@@ -320,7 +370,7 @@ class Register extends Component {
                     value="1"
                     onChange={this.onChangeYear}
                   />
-                  <label htmlFor="year1">1</label>
+                  <label className="register-label" htmlFor="year1">1</label>
                 </div>
                 <div className="radio-button-container">
                   <input
@@ -331,7 +381,7 @@ class Register extends Component {
                     value="2"
                     onChange={this.onChangeYear}
                   />
-                  <label htmlFor="year2">2</label>
+                  <label className="register-label" htmlFor="year2">2</label>
                 </div>
                 <div className="radio-button-container">
                   <input
@@ -342,7 +392,7 @@ class Register extends Component {
                     value="3"
                     onChange={this.onChangeYear}
                   />
-                  <label htmlFor="year3">3</label>
+                  <label className="register-label" htmlFor="year3">3</label>
                 </div>
                 <div className="radio-button-container">
                   <input
@@ -353,7 +403,90 @@ class Register extends Component {
                     value="4"
                     onChange={this.onChangeYear}
                   />
-                  <label htmlFor="year4">4</label>
+                  <label className="register-label" htmlFor="year4">4</label>
+                </div>
+              </div>
+              <p className="register-label">Gender</p>
+              <div className="input-element-container radio-buttons-container">
+                <div className="radio-button-container">
+                  <input
+                    id="male"
+                    type="radio"
+                    checked={gender === "M"}
+                    name="gender"
+                    value="M"
+                    onChange={this.onChangeGender}
+                  />
+                  <label className="register-label" htmlFor="male">Male</label>
+                </div>
+                <div className="radio-button-container">
+                  <input
+                    id="female"
+                    type="radio"
+                    checked={gender === "F"}
+                    name="gender"
+                    value="F"
+                    onChange={this.onChangeGender}
+                  />
+                  <label className="register-label" htmlFor="female">Female</label>
+                </div>
+              </div>
+              <p className="register-label">Department</p>
+              <div className="input-element-container radio-buttons-container">
+                <div className="radio-button-container">
+                  <input
+                    id="cse"
+                    type="radio"
+                    checked={branch === "CSE"}
+                    name="branch"
+                    value="CSE"
+                    onChange={this.onChangeBranch}
+                  />
+                  <label className="register-label" htmlFor="cse">CSE</label>
+                </div>
+                <div className="radio-button-container">
+                  <input
+                    id="ece"
+                    type="radio"
+                    checked={branch === "ECE"}
+                    name="branch"
+                    value="ECE"
+                    onChange={this.onChangeBranch}
+                  />
+                  <label className="register-label" htmlFor="ece">ECE</label>
+                </div>
+                <div className="radio-button-container">
+                  <input
+                    id="EEE"
+                    type="radio"
+                    checked={branch === "EEE"}
+                    name="branch"
+                    value="EEE"
+                    onChange={this.onChangeBranch}
+                  />
+                  <label className="register-label" htmlFor="EEE">EEE</label>
+                </div>
+                <div className="radio-button-container">
+                  <input
+                    id="MECH"
+                    type="radio"
+                    checked={branch === "MECH"}
+                    name="branch"
+                    value="MECH"
+                    onChange={this.onChangeBranch}
+                  />
+                  <label className="register-label" htmlFor="MECH">MECH</label>
+                </div>
+                <div className="radio-button-container">
+                  <input
+                    id="CIVIL"
+                    type="radio"
+                    checked={branch === "CIVIL"}
+                    name="branch"
+                    value="CIVIL"
+                    onChange={this.onChangeBranch}
+                  />
+                  <label className="register-label" htmlFor="CIVIL">CIVIL</label>
                 </div>
               </div>
             </div>

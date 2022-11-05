@@ -18,3 +18,9 @@
     height: 80px;
     width: 140px;
 }
+.home-link {
+    text-decoration: none;
+}
+.empty {
+    width: 100px;
+}

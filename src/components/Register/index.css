@@ -10,20 +10,25 @@
     align-items: center;
 }
 .register-part-1 {
-    width: 49%;
-    border-right-style: solid;
+    width: 30%;
+    /* border-right-style: solid; */
+    border-right-color: white;
     border-width: 2px;
     padding-right: 10px;
 
 }
 .register-part-2 {
-    width: 49%;
+    width: 39%;
+}
+.register-part-3 {
+    margin-left: 20px;
+    border-right: 2px solid white;
 }
 .register-input {
     width: 90%;
     padding: 10px;
     display: block;
-    border: 1px solid black;
+    border: 1px solid ;
     border-radius: 10px;
     font-size: 15px;
 }
@@ -71,10 +76,15 @@
 .register-page {
     background-size: cover;
     height: 100vh;
+    background-image: url('https://raw.githubusercontent.com/kartheek542/ubuntu-test/main/nuff.png');
+    background-size: cover;
 }
 .register-form {
     padding: 10px;
 }
 .register-heading {
     font-size: 50px;
+}
+.register-label {
+    color: white;
 }
